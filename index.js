@@ -1,3 +1,4 @@
+require('dotenv/config');
 const express = require('express');
 const mongoose = require('mongoose');
 const patientsRouter = require('./routes/patients');
@@ -14,7 +15,7 @@ app.use(cors({
 )
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/hospitalDB', {
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
